@@ -1,0 +1,11 @@
+# Khai báo stage
+stages:
+  - hello
+
+# định nghĩa job
+hello_job :
+  stage: hello
+  script : 
+  - echo "Hello world!"
+
+
