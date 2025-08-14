@@ -1,7 +1,8 @@
-stages:          # Định nghĩa các stage
-  - hello
+stages:
+  
+- hello
 
-hello_job:       # Tên job
-  stage: hello   # Thuộc stage hello
-  script:        # Lệnh sẽ chạy
-    - echo "Hello World!"
+hello-job:
+  stage: hello
+  script:
+    - echo "Hello world!"
