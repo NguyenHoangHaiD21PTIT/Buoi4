@@ -1,11 +1,7 @@
-# Khai báo stage
-stages:
+stages:          # Định nghĩa các stage
   - hello
 
-# định nghĩa job
-hello_job :
-  stage: hello
-  script : 
-  - echo "Hello world!"
-
-
+hello_job:       # Tên job
+  stage: hello   # Thuộc stage hello
+  script:        # Lệnh sẽ chạy
+    - echo "Hello World!"
