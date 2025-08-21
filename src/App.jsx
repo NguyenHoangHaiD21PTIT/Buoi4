@@ -12,5 +12,7 @@ function App() {
     </>
   )
 }
-
-export default App
+export default function App() {
+  const id = import.meta.env.VITE_STUDENT_ID;
+  return <div style={{ padding: 24 }}>Student ID: {id}</div>;
+}
