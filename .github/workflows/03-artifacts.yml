@@ -1,0 +1,26 @@
+name: 03 - Artifacts
+on: [workflow_dispatch]
+
+jobs:
+  build_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          mkdir -p out
+          echo "Hello from build at $GITHUB_RUN_ID" > out/hello.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hello-artifacts
+          path: out/
+
+  test_artifact:
+    runs-on: ubuntu-latest
+    needs: build_hello
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: hello-artifacts
+          path: out
+      - run: |
+          echo "Reading artifact from build_hello:"
+          cat out/hello.txt
