@@ -1,8 +1,16 @@
 name: 01 - Hello
 on: [workflow_dispatch]
-
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello world!"
+#Cấu trúc cơ bản của 1 file:
+#name: 
+#on: 
+#jobs:
+#  Tên job A:
+#    runs-on:
+#    needs: B (Tức là A chạy sau khi B chạy xong)
+#    steps:
+#      - Liệt kê các bước ra
