@@ -1,0 +1,21 @@
+name: 06 - Env & Secrets
+on: [workflow_dispatch]
+
+jobs:
+  build_with_secret:
+    runs-on: ubuntu-latest
+    env:
+      VITE_STUDENT_ID: ${{ secrets.VITE_STUDENT_ID }}  # sẽ được mask
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: |
+          echo "Building with VITE_STUDENT_ID=${VITE_STUDENT_ID}"
+          npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
